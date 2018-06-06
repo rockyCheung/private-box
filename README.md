@@ -1,1 +1,1 @@
-private box is application for help people remember secret code.
+private box is application that help users to manage their passwords.
