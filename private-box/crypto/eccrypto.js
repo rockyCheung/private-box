@@ -20,6 +20,26 @@ var sign = function(privateKey,summary,callback){
     callback(sig);
   });
 };
+
+var hash = function(algorithm,summary,timestamps){
+  var creatTime = timestamps;
+  if(timestamps==""){
+    creatTime = new Date();
+  }
+  var hash = crypto.createHash(algorithm).update(summary+"@"+creatTime).digest();
+  var reset = {};
+  reset.hash = hash;
+  reset.creatTime = creatTime;
+  return reset;
+};
+
+var summary = function(array){
+  var sum = '';
+  for (var i=0;i<array.length;i++){
+      sum = array[i]^"$";
+  }
+  return sum;
+};
 //verify your sign
 var verify = function(publicKey,summary,sign,callback){
   eccrypto.verify(publicKey, summary, sign).then(function() {
@@ -34,5 +54,7 @@ safe.encrypt = encrypt;
 safe.decrypt = decrypt;
 safe.sign = sign;
 safe.verify = verify;
+safe.hash = hash;
+safe.summary = summary;
 
 module.exports = safe;
