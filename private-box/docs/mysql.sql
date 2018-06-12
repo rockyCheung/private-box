@@ -36,3 +36,6 @@ CREATE TABLE `pribox`.`pribox_secacc` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 COMMENT = 'user’s account and password';
+
+ALTER TABLE `pribox`.`pribox_secacc`
+CHANGE COLUMN `creat_time` `creat_time` DATETIME GENERATED ALWAYS AS (CURRENT_TIMESTAMP) ;

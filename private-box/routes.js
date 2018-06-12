@@ -20,6 +20,9 @@ router.get("/", function(req, res) {
   */
   res.render("login", { title: "Express" });
 });
+router.get("/req_register_input.html", function(req, res) {
+  res.render("register", { title: "Private Box" });
+});
 
 router.get("/req_register.html", function(req, res) {
   var iemail = req.body.email;
@@ -58,6 +61,9 @@ router.get("/req_login.html", function(req, res) {
         console.log(result);
         var ipassword = safe.hash("sha256",password,result.creat_time);
         if(ipassword==result.pass){
+          var PRIVATE_USER = {};
+          PRIVATE_USER.LOGIN_NAME = iemail;
+          req.session.PRIVATE_USER = PRIVATE_USER;
           res.render("index", { title: "Page 3" });
         }else{
           res.render("error", { title: "Page 3" });
@@ -66,7 +72,40 @@ router.get("/req_login.html", function(req, res) {
     });
 });
 
-router.get("/pageFour", function(req, res) {
+router.get("/req_add_account.html", function(req, res) {
+  var account = req.body.account;
+  var password = req.body.password;
+  var platformName = req.body.platformName;
+  var platformUrl = req.body.platformUrl;
+  var remark = req.body.remark;
+  var user = req.session.PRIVATE_USER;
+  preparedExcutor('SELECT sign,max(id) FROM pribox_secacc limit 1',[],function(error,privious){
+    var priviousSign = privious.sign;
+    preparedExcutor('SELECT private_key,public_key FROM pribox_users where login_name=?',[user.LOGIN_NAME],function(error,result){
+      if(error){
+        res.render("error", { title: "Page 3" });
+      }else{
+        var publicKey = new Buffer(result.public_key,"base64");
+        safe.encrypt(publicKey,account,function(accnoutEncrypted){
+          account = accnoutEncrypted;
+          safe.encrypt(publicKey,password,function(passEncrypted){
+            password = passEncrypted;
+            var summary = safe.summary(new Array(user.LOGIN_NAME,account,password));
+            var privateKey = result.private_key;
+            safe.sign(privateKey,summary,function(sig){
+              preparedExcutor('INSERT INTO pribox_secacc(account,password,platform_name,platform_url,remark,previous_block,sign,user_email)VALUES(?,?,?,?,?,?,?,?)',[account,password,platformName,platformUrl,remark,priviousSign,sig,user.LOGIN_NAME],function(error,result){
+                  res.render("pageFour", { title: "Page 4" });
+                });
+            });
+          });
+        });
+      }
+    });
+  });
+
+});
+
+router.get("/req_add_account_input.html", function(req, res) {
   res.render("pageFour", { title: "Page 4" });
 });
 
