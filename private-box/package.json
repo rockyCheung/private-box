@@ -15,6 +15,7 @@
     "serve-favicon": "^2.5.0",
     "session-file-store":"latest",
     "express-session":"latest",
-    "supervisor":"latest"
+    "supervisor":"latest",
+    "mysql":"latest"
   }
 }

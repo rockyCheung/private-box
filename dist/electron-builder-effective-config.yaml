@@ -1,0 +1,16 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.pathcurve.PrivateBox
+copyright: Rocky
+productName: PrivateBox
+dmg:
+  background: res/background.png
+  window:
+    x: 100
+    'y': 100
+    width: 500
+    height: 300
+win:
+  icon: res/icon.ico
+electronVersion: 1.8.6

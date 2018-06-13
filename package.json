@@ -12,15 +12,16 @@
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
-  "dependencies": {
-    "electron": "^1.8.4",
-    "electron-updater": "^2.21.10",
-    "jquery": "^3.3.1",
-    "keymaster": "^1.6.2",
-    "lodash": "^4.17.10",
-    "request": "^2.85.0",
-    "strip": "^3.0.0"
-  },
+  "devDependencies": {
+        "electron": "^2.0.2",
+        "electron-updater": "^2.21.10",
+        "jquery": "^3.3.1",
+        "keymaster": "^1.6.2",
+        "lodash": "^4.17.10",
+        "request": "^2.85.0",
+        "strip": "^3.0.0",
+        "electron-builder":"^20.15.1"
+    },
   "build": {
     "appId": "com.pathcurve.PrivateBox",
     "copyright": "Rocky",
