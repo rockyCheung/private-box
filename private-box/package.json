@@ -9,13 +9,14 @@
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "debug": "^3.1.0",
+    "eccrypto": "^1.0.3",
     "express": "^4.16.3",
+    "express-session": "latest",
     "hbs": "^4.0.1",
     "morgan": "^1.9.0",
+    "mysql": "latest",
     "serve-favicon": "^2.5.0",
-    "session-file-store":"latest",
-    "express-session":"latest",
-    "supervisor":"latest",
-    "mysql":"latest"
+    "session-file-store": "latest",
+    "supervisor": "latest"
   }
 }

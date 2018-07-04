@@ -11,6 +11,7 @@ html,
 body {
   height: 100%;
   overflow: hidden;
+  background: #eef5f9;
 }
 
 ul {
@@ -37,9 +38,9 @@ ul {
 
 .admin-main {
   position: relative;
-  height: 100%;
+  /*height: 100%;
   padding-top: 51px;
-  background: #f3f3f3;
+  background: #f3f3f3;*/
 }
 
 .admin-menu {
@@ -106,7 +107,7 @@ ul {
 .admin-sidebar {
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
   -webkit-overflow-scrolling: touch;
 }
 
