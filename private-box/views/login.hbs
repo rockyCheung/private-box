@@ -10,6 +10,7 @@
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <link rel="alternate icon" type="image/png" href="assets/i/favicon.png">
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/newAdd.css"/>
   <style>
     .header {
       text-align: center;
@@ -22,6 +23,16 @@
     .header p {
       font-size: 14px;
     }
+    .form-control{
+		border: 1px solid #D7DFE3!important;
+	    border-radius: .25rem!important;
+	    line-height: 1.25rem!important;
+	    padding: .8rem .75rem!important;
+	    font-size: 1.3rem!important;
+	}
+	.form-control:focus{
+		border: 1px solid #10A0EA!important;
+	}
   </style>
 </head>
 <body>
@@ -46,10 +57,10 @@
 
     <form method="post" class="am-form">
       <label for="email">邮箱:</label>
-      <input type="email" name="" id="email" value="">
+      <input type="email" name="" id="email" value="" class="form-control">
       <br>
       <label for="password">密码:</label>
-      <input type="password" name="" id="password" value="">
+      <input type="password" name="" id="password" value="" class="form-control">
       <br>
       <label for="remember-me">
         <input id="remember-me" type="checkbox">

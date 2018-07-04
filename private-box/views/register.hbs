@@ -14,6 +14,11 @@
   <meta name="apple-mobile-web-app-title" content="Private Box" />
   <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
   <link rel="stylesheet" href="assets/css/admin.css">
+  <link rel="stylesheet" href="assets/css/newAdd.css">
+  <style>
+  	.am-tabs-bd {border:0;}
+  	.am-nav-tabs {border-bottom:0;}
+  </style>
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -41,12 +46,10 @@
 
 <!-- content start -->
 <FROM action="/req_register.html" id="form1" method="post">
-<div class="admin-content">
+<div class="admin-content card">
   <div class="admin-content-body">
     <div class="am-cf am-padding am-padding-bottom-0">
-      <div class="am-fl am-cf">
-        <strong class="am-text-primary am-text-lg">注册</strong>
-      </div>
+      <p class="am-text-primary am-text-lg cardTitle">注册</p>
     </div>
 
     <hr>
@@ -61,23 +64,23 @@
       <div class="am-tabs-bd">
         <div class="am-tab-panel am-fade am-in am-active" id="tab1">
           <div class="am-g am-margin-top">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">邮箱</div>
+            <div class="am-u-sm-4 am-u-md-2 am-text-right lpTip">邮箱</div>
             <div class="am-u-sm-8 am-u-md-10">
-              <input type="input" name="loginName" id="loginName" placeholder="系统登录名称">
+              <input type="input" name="loginName" class="form-control" id="loginName" placeholder="系统登录名称">
             </div>
           </div>
 
           <div class="am-g am-margin-top">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">登录密码</div>
+            <div class="am-u-sm-4 am-u-md-2 am-text-right lpTip">登录密码</div>
             <div class="am-u-sm-8 am-u-md-10">
-                <input type="password" name="password" id="password" placeholder="输入密码">
+                <input type="password" name="password" class="form-control" id="password" placeholder="输入密码">
               </div>
             </div>
 
           <div class="am-g am-margin-top">
-            <div class="am-u-sm-4 am-u-md-2 am-text-right">登录密码</div>
+            <div class="am-u-sm-4 am-u-md-2 am-text-right lpTip">登录密码</div>
             <div class="am-u-sm-8 am-u-md-10">
-                <input type="password" name="repassword" id="repassword" placeholder="再次输入密码">
+                <input type="password" name="repassword" class="form-control" id="repassword" placeholder="再次输入密码">
               </div>
           </div>
 
@@ -86,7 +89,10 @@
     </div>
 
     <div class="am-margin">
-      <button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+   	  <div class="am-u-sm-4 am-u-md-2 am-text-right lpTip">&nbsp;</div>
+      <div class="am-u-sm-8 am-u-md-10">
+      	<button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+      </div>
     </div>
 
   </div>
